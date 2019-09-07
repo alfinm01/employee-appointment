@@ -1,0 +1,16 @@
+{
+  "name": "employee-appointment",
+  "version": "1.0.0",
+  "description": "Tugas besar mata kuliah LSTI 2017, proses bisnis \"pengangkatan pegawai\"",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Salma Fedora, Dwi Cahyo Pangestu, Adini Safia Zahra, Alfian Maulana Ibrahim, Andre Juliantama",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "pg-promise": "^9.1.2"
+  }
+}

@@ -4,8 +4,8 @@
 
 require('dotenv').config();
 
-const express = require('express');
-const app = express();
+var express = require('express');
+var app = express();
 
 // Register routes
 app.use('/', require('./routes/index'));
@@ -15,7 +15,7 @@ const start = async () => {
     try {
     	// Isi PORT di file .env (default: 3000)
         const server = await app.listen(process.env.PORT);
-		console.info(`Server listening on ${server.address().port}`)
+		console.info(`Server listening on ${server.address().port}`);
     } catch (err) {
         console.error(err);
     }

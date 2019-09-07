@@ -4,6 +4,7 @@
   "description": "Tugas besar mata kuliah LSTI 2017, proses bisnis \"pengangkatan pegawai\"",
   "main": "main.js",
   "scripts": {
+    "test": "./node_modules/gulp/bin/gulp.js test",
     "start": "node main.js"
   },
   "author": "Salma Fedora, Dwi Cahyo Pangestu, Adini Safia Zahra, Alfian Maulana Ibrahim, Andre Juliantama",

@@ -1,7 +1,7 @@
 # Employee Appointment Web Service
 Tugas besar mata kuliah LSTI 2017, proses bisnis "pengangkatan pegawai"
 
-###Anggota kelompok
+### Anggota kelompok
 1. Salma Fedora - 18217007
 2. Dwi Cahyo Pangestu - 18217029
 3. Adini Safia Zahra - 18217033
@@ -17,7 +17,7 @@ $ npm install
 $ npm start
 ```
 
-###Environment variables
+## Environment variables
 ```
 PORT=<port>
 DB_HOST=<insert PostgreSQL hostname>

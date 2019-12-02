@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="css/style_management.css">
+  <title> Tambah Pegawai </title>
+  <style>
+    @font-face {
+      font-family: Lato;
+      src: url(assets/font/Lato-Bold.ttf);
+    }
+    @font-face {
+      font-family: SourceSansPro;
+      src: url(assets/font/SourceSansPro-Regular.otf);
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+  </script>
+
+  </head>
+
+  <body style="background-color: #abddff;">
+    <div class="upper-menu">
+
+        <h2> Tambah Pegawai
+        <a href="daftar_pegawai.html" class="backbtn">
+          <img src="assets/image/back.png" alt="back" width="20px" height="20px">
+        </a>
+        </h2>
+    </div>
+
+    <main>
+      <Br>
+        <br>
+        <div class="class-table">
+
+          <div class="col">
+            <div class="table">
+
+              <h1> Tambah Pegawai </h1>
+
+
+              <form id="RegisterForm" class="create-post-form" method="POST" enctype="multipart/form-data">
+
+              <ul>
+                <li><strong> Nama </strong></li>
+                  <input type="text" id="in-name" name="nama" placeholder="Nama"  >
+                <li><strong> NIP </strong></li>
+                  <input type="text" id="in-NIP" name="nip" placeholder="NIP"  >
+                <li><strong> Alamat </strong></li>
+                  <input type="text" id="in-addr" name="alamat" placeholder="Alamat"  >
+                <li><strong> Email Personal </strong></li>
+                  <input type="text" id="in-e-p" name="email_personal" placeholder="Email Personal"  >
+                <li><strong> Nomor telepon </strong></li>
+                  <input type="text" id="in-telp" name="no_telepon" placeholder="Nomor Telepon"  >
+                <br>
+              </ul>
+
+                <br>
+                <br>
+                <br>
+                <br>
+            <center>
+              <a href="#"> <button class="save" id="save"> Save </button> </a>
+              <a href="#"> <button class="discard"> Discard </button></a>
+            </center>
+
+            </form>
+            </div>
+          </div>
+
+        </div>
+    </main>
+    <script>
+      $(document).ready(function(){
+        $("#save").click(function() { 
+          event.preventDefault();
+          var data = $("#RegisterForm").serialize();
+          //alert($("input#in-name").val())
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/employee",
+            crossDomain: true,
+            data: data,
+            dataType: "json",
+          }).done(function(res) {
+            console.log(res);
+          }).fail(function(err) {
+            console.log(err);
+          }); 
+        });
+      });        
+    </script>  
+  </body>
+
+</html>

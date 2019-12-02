@@ -1,0 +1,154 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: SourceSansPro;
+}
+
+
+.upper-menu{
+  height: 50px;
+  background: #2E528F;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.upper-menu h3{
+  float: right;
+  line-height: 50px;
+}
+
+.header{
+  height: 100px;
+  background: #2E528F;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.logo{
+  line-height: 50px;
+  float:left;
+  font-family: Lato;
+  font-weight: lighter;
+}
+
+
+.search-box{
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  height: 30px;
+  border-radius: 40px;
+  padding: 10px;
+  z-index: 3;
+}
+
+.search-box:hover > .search-txt{
+  width: 200px;
+  padding: 0 6px;
+  transition: 0.4s;
+
+}
+
+.search-box:hover > .search-btn{
+
+}
+
+
+.search-btn{
+  color: black;
+  float: right;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-txt{
+  border:none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: black;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 30px;
+  width: 0px;
+
+}
+
+.content-table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  min-width: 400px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 80%;
+}
+
+.content-table thead tr{
+  background-color: #2E528F;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th, .content-table td{
+  padding: 12px 15px;
+}
+
+.content-table tbody tr{
+  border-bottom: 1px solid #ededf7;
+}
+
+.content-table tr:nth-of-type(even){
+  background-color: #ededf7;
+}
+
+.content-table tr:last-of-type{
+  border-bottom: 3px solid #2E528F;
+}
+
+
+.gotopbtn{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 40px;
+  right: 20px;
+
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  z-index: 4;
+  background: #2E528F;
+
+}
+
+.addbtn{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 120px;
+  right: 20px;
+  border-radius: 30px;
+
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 35px;
+  z-index: 4;
+  background: #2E528F;
+
+}

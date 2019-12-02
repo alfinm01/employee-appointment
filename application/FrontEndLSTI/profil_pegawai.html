@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="css/style_registrasi.css">
+  <title> Profil Pegawai </title>
+  <style>
+    @font-face {
+      font-family: Lato;
+      src: url(assets/font/Lato-Bold.ttf);
+    }
+    @font-face {
+      font-family: SourceSansPro;
+      src: url(assets/font/SourceSansPro-Regular.otf);
+    }
+
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+</script>
+
+</head>
+
+<body style="background-color: #abddff;">
+  <div class="upper-menu">
+      <h2 class="logo"> Pengangkatan Pegawai </h2>
+      <input type="checkbox" id="chk">
+      <label for="chk" class="show-menu-btn">
+        <img src="assets/image/more_pattern.png" width="20" height="20">
+      </label>
+
+      <ul class="menu">
+        <a href="profil_pegawai.html" style="font-size: 20px; color: #3498db; "> Profil </a>
+        <a href="sertifikat.html" style="font-size: 20px;"> Sertifikat </a>
+        <a href="dokumen.html" style="font-size: 20px;"> Dokumen </a>
+        <a href="login_pegawai.html" style="font-size: 20px;"> Log Out </a>
+        <label for="chk" class="hide-menu-btn">
+          <img src="assets/image/close-cross.png" width="20" height="20">
+        </label>
+      </ul>
+  </div>
+
+<main>
+  <br>
+  <br>
+
+  <div class="class-table">
+
+    <div class="col">
+      <div class="table">
+        <center><h1> Profil Pegawai </h1></center>
+
+        <h2> General </h2>
+        <hr color=#2E528F>
+        <ul>
+          <li><strong> Nama </strong></li>
+            <p id="nama"></p>
+          <li><strong> NIP </strong></li>
+            <p id="nip"></p>
+          <li><strong> Alamat </strong></li>
+            <p id="alamat"> </p>
+          <li><strong> Email Personal </strong></li>
+            <p id="email_personal"></p>
+          <li><strong> Email Organisasi </strong></li>
+            <p id="email_organisasi"></p>
+          <li><strong> Nomor telepon </strong></li>
+            <p id="no_telepon"></p>
+          <br>
+        </ul>
+
+        <h2> Jabatan </h2>
+        <hr color=#2E528F>
+        <ul>
+          <li><strong> Kategori </strong></li>
+            <p>Carry</p>
+          <li><strong> Nama Kategori </strong></li>
+            <p>Carry</p>
+          <li><strong> Waktu Mulai </strong></li>
+            <p>11/11/2019</p>
+          <br>
+        </ul>
+
+        <h2> Unit Kerja </h2>
+        <hr color=#2E528F>
+        <ul>
+          <li><strong> Unit Kerja </strong></li>
+            <p>Carry</p>
+          <li><strong> Waktu Mulai </strong></li>
+            <p>11/11/2019</p>
+          <br>
+        </ul>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+        <a href="profil_edit.html"> <button class="edit"> Edit </button></a>
+      </center>
+
+      </div>
+    </div>
+
+</div>
+
+</main>
+    <script>
+      $(document).ready(function(){ 
+      //alert($("input#in-name").val())
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:3000/employee",
+          crossDomain: true,
+          dataType: "json",
+        }).done(function(res){
+          console.log(res);
+          $('#nama').append(res.data[0].nama)
+          $('#nip').append(res.data[0].nip)
+          $('#alamat').append(res.data[0].alamat)
+          $('#email_personal').append(res.data[0].email_personal)
+          $('#email_organisasii').append(res.data[0].email_organisasi)
+          $('#no_telepon').append(res.data[0].no_telepon)
+          }).fail(function(err){
+            console.log(err);
+          });   
+      });
+    </script>
+</body>
+
+</html>

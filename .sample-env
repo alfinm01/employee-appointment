@@ -1,6 +1,6 @@
 PORT=3000
-DB_HOST=localhost
-DB_USER=lsti
-DB_PASS=lsti
-DB_NAME=lsti_db
-DB_PORT=5432
+DB_HOST=178.128.104.74
+DB_USER=lasti
+DB_PASS=58976ee6
+DB_NAME=pengangkatanpegawai
+DB_PORT=40080

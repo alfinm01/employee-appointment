@@ -2,14 +2,10 @@
  * Connecting to database
  */
 
-const Pool = require('pg').Pool;
+require('dotenv').config();
 
-const pool = new Pool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
-});
+const pgp = require('pg-promise')();
+const DATABASE_URL = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+const db = pgp(DATABASE_URL);
 
-module.exports = pool;
+module.exports = db;

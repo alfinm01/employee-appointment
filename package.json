@@ -1,28 +1,31 @@
 {
-  "name": "employee-appointment",
+  "name": "pengangkatanpegawai-webapi",
   "version": "1.0.0",
-  "description": "Tugas besar mata kuliah LSTI 2017, proses bisnis \"pengangkatan pegawai\"",
-  "main": "main.js",
+  "description": "Tugas besar mata kuliah LSTI 2019/2020, proses bisnis \"pengangkatan pegawai\"\\\r Dokumentasi (temporary): https://app.swaggerhub.com/apis-docs/alfinm01/Pengangkatan-Pegawai/1.0.0#/",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon main.js"
-  },
-  "author": "Salma Fedora, Dwi Cahyo Pangestu, Adini Safia Zahra, Alfian Maulana Ibrahim, Andre Juliantama",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^8.1.0",
-    "express": "^4.17.1",
-    "pg": "^7.12.1",
-    "pg-promise": "^9.1.2"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.2"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alfinm01/employee-appointment.git"
+    "url": "git+https://gitlab.com/smartcampusplatform/pengangkatanpegawai/webapi.git"
   },
+  "author": "Salma Fedora, Dwi Cahyo Pangestu, Adini Safia Zahra, Alfian Maulana Ibrahim, Andre Juliantama",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alfinm01/employee-appointment/issues"
+    "url": "https://gitlab.com/smartcampusplatform/pengangkatanpegawai/webapi/issues"
   },
-  "homepage": "https://github.com/alfinm01/employee-appointment#readme"
+  "homepage": "https://gitlab.com/smartcampusplatform/pengangkatanpegawai/webapi#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "html-pdf": "^2.2.0",
+    "nodemon": "^1.19.4",
+    "pg-promise": "^9.3.3"
+  }
 }

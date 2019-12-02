@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="css/style_management.css">
+  <title> Edit Data Pegawai </title>
+  <style>
+    @font-face {
+      font-family: Lato;
+      src: url(assets/font/Lato-Bold.ttf);
+    }
+    @font-face {
+      font-family: SourceSansPro;
+      src: url(assets/font/SourceSansPro-Regular.otf);
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+  </script>
+  
+  </head>
+
+  <body style="background-color: #abddff;">
+    <div class="upper-menu">
+
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+          <img src="assets/image/more_pattern.png" width="20" height="20">
+        </label>
+
+
+        <ul class="menu">
+          <a href="manajemen_pegawai_overview.html" style="font-size: 20px; color: #3498db;"> Manajemen Data </a>
+          <a href="status.html" style="font-size: 20px;"> Status </a>
+          <a href="renumerasi.html" style="font-size: 20px;"> Remunerasi </a>
+          <label for="chk" class="hide-menu-btn">
+            <img src="assets/image/close-cross.png" width="15px" height="15px">
+          </label>
+        </ul>
+
+        <h2> Manajemen Data
+        <a href="daftar_pegawai.html" class="backbtn">
+          <img src="assets/image/back.png" alt="back" width="20px" height="20px">
+        </a>
+        </h2>
+    </div>
+
+    <main>
+      <Br>
+        <br>
+        <div class="class-table">
+
+          <div class="col">
+            <div class="table">
+
+              <h1> Edit Profil </h1>
+
+
+              <form>
+
+              <ul>
+                <li><strong> Nama </strong></li>
+                  <input type="text" id="in-name" name="in-name" placeholder="Nama" method="post" value="Alfian sang Carry">
+                <li><strong> NIP </strong></li>
+                  <input type="text" id="in-NIP" name="in-NIP" placeholder="NIP" method="post" value="123213">
+                <li><strong> Alamat </strong></li>
+                  <input type="text" id="in-addr" name="in-addr" placeholder="Alamat" method="post" value="Jl. Bareng">
+                <li><strong> Email Personal </strong></li>
+                  <input type="text" id="in-e-p" name="in-e-p" placeholder="Email Personal" method="post" value="Alfiancarry@gmail.com">
+                <li><strong> Nomor telepon </strong></li>
+                  <input type="text" id="in-telp" name="in-telp" placeholder="Nomor Telepon" method="post" value="083543234">
+                <br>
+              </ul>
+
+                <br>
+                <br>
+                <br>
+                <br>
+            <center>
+              <a href="#"> <button class="save"> Save </button> </a>
+              <a href="#"> <button class="discard"> Discard </button></a>
+            </center>
+
+            </form>
+            </div>
+          </div>
+
+        </div>
+    </main>
+  </body>
+
+</html>

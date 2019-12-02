@@ -1,5 +1,6 @@
 # Employee Appointment Web Service
-Tugas besar mata kuliah LSTI 2019/2020, proses bisnis "pengangkatan pegawai"
+Tugas besar mata kuliah LSTI 2019/2020, proses bisnis "pengangkatan pegawai"\
+[Dokumentasi Pengangkatan Pegawai](https://bit.ly/swaggerK2)
 
 ### Anggota kelompok
 1. Salma Fedora - 18217007
@@ -8,21 +9,14 @@ Tugas besar mata kuliah LSTI 2019/2020, proses bisnis "pengangkatan pegawai"
 4. Alfian Maulana Ibrahim - 18217038
 5. Andre Juliantama - 18217040
 
+> 
+
 ## Build setup
-```
+
+``` bash
 # install dependencies
 $ npm install
 
-# launch server
-$ npm start
-```
-
-## Environment variables
-```
-PORT=<port>
-DB_HOST=<insert PostgreSQL hostname>
-DB_USER=<insert PostgreSQL username>
-DB_PASS=<insert PostgreSQL password>
-DB_NAME=<insert PostgreSQL database name>
-DB_PORT=<insert PostgreSQL database server port>
+# serve with hot reload at localhost:3000
+$ npm run start
 ```

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="css/style_daftar.css">
+  <title> Daftar Pegawai </title>
+  <style>
+    @font-face {
+      font-family: Lato;
+      src: url(assets/font/Lato-Bold.ttf);
+    }
+    @font-face {
+      font-family: SourceSansPro;
+      src: url(assets/font/SourceSansPro-Regular.otf);
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+  </script>
+
+  </head>
+
+  <body>
+
+    <div class="upper-menu">
+        <h2 class="logo"> Pengangkatan Pegawai </h2>
+        <h3> Daftar Pegawai </h3>
+    </div>
+
+    <div class="header">
+      <center>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="Cari pegawai">
+            <a class="search-btn" href="#">
+              <img src="assets/image/search_b.png" width="20" height="20">
+            </a>
+        </div>
+      </center>
+    </div>
+
+    <main>
+      <center>
+        <br>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th> Nama Pegawai </th>
+            <th> NIP </th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody id="tabelPegawai">
+          <tr>
+            <td> Alfian </td>
+            <td> 123456789 </td>
+            <td>
+              <a href="manajemen_pegawai_overview.html">
+                <img src="assets/image/next.png" height="15px" width="15px ">
+              </a>
+             </td>
+          </tr>
+
+          <tr>
+            <td> Sang </td>
+            <td> 234234 </td>
+            <td>
+              <a href="manajemen_pegawai_overview.html">
+                <img src="assets/image/next.png" height="15px" width="15px ">
+              </a>
+              </td>
+          </tr>
+
+          <tr>
+            <td> Carry </td>
+            <td> 42356789 </td>
+            <td>
+              <a href="manajemen_pegawai_overview.html">
+                <img src="assets/image/next.png"  height="15px" width="15px ">
+              </a>
+             </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </center>
+    </main>
+    <script>
+      $(document).ready(function(){ 
+      //alert($("input#in-name").val())
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:3000/employee",
+          crossDomain: true,
+          dataType: "json",
+        }).done(function(   res){
+          console.log(res);
+          $.each(res.data, function(i, key){
+            var ref = '<a href="manajemen_pegawai_overview.html"> <img src="assets/image/next.png" height="15px" width="15px "></td></a>'
+            var $tr = $("<tr>").append(
+              $('<td>').text(key.nama),
+              $('<td>').text(key.nip),
+              $('<td><a href="manajemen_pegawai_overview.html"><img src="assets/image/next.png" height="15px" width="15px "></td></a>')
+            );
+            $("#tabelPegawai").append($tr)
+            });
+          }).fail(function(err){
+            console.log(err);
+          });   
+      });
+    </script>
+        
+  </body>
+  <a  class ="gotopbtn" href="#">
+    <img src="assets/image/up-arrow.png" height="20px" width="20px">
+  </a>
+
+  </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="css/style_management.css">
+  <title> Remunerasi </title>
+  <style>
+    @font-face {
+      font-family: Lato;
+      src: url(assets/font/Lato-Bold.ttf);
+    }
+    @font-face {
+      font-family: SourceSansPro;
+      src: url(assets/font/SourceSansPro-Regular.otf);
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+  </script>
+    
+  </head>
+
+  <body style="background-color: #abddff;">
+    <div class="upper-menu">
+
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+          <img src="assets/image/more_pattern.png" width="20" height="20">
+        </label>
+
+
+        <ul class="menu">
+          <a href="manajemen_pegawai_overview.html" style="font-size: 20px;"> Manajemen Data </a>
+          <a href="status.html" style="font-size: 20px;" > Status </a>
+          <a href="renumerasi.html" style="font-size: 20px;color: #3498db;"> Remunerasi </a>
+          <label for="chk" class="hide-menu-btn">
+            <img src="assets/image/close-cross.png" width="15px" height="15px">
+          </label>
+        </ul>
+
+        <h2> Remunerasi
+        <a href="daftar_pegawai.html" class="backbtn">
+          <img src="assets/image/back.png" alt="back" width="20px" height="20px">
+        </a>
+        </h2>
+    </div>
+
+    <main>
+      <Br>
+        <br>
+        <div class="class-table">
+
+          <div class="col">
+            <div class="table">
+
+              <h1> Remunerasi </h1>
+                <hr color=#2E528F>
+
+              <form>
+
+                <ul>
+                  <li><strong> Pendapatan </strong> <p style="float: right;">Rp10.000.000</p></li>
+                  <input type="text" id="in-gaji" name="in-gaji" placeholder="Gaji" method="post">
+
+<br>
+
+                  <li><strong> Download Sertifikat </strong></li>
+                    <a href="#"> <button class="button button-upload"> <img src="assets/image/download-button.png" width="15px" height="15px"> Sertifikat </button></a>
+                </ul>
+
+                <br>
+                <br>
+                <br>
+                <br>
+            <center>
+              <a href="#"> <button class="save"> Submit </button> </a>
+            </center>
+
+            </form>
+            </div>
+          </div>
+
+        </div>
+    </main>
+
+  </body>
+  </html>

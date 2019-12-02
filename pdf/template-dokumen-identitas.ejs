@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Dokumen Identitas</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div>
+<table style="width: 686px;" border="0" cellpadding="1" align="center">
+<tbody>
+<tr>
+<td style="width: 678px;" colspan="3">
+<div align="center"><br />
+<h1><img style="float: right;" src="https://upload.wikimedia.org/wikipedia/id/9/95/Logo_Institut_Teknologi_Bandung.png" alt="Logo Itb" width="125" height="125" /></h1>
+</div>
+</td>
+</tr>
+<tr>
+<td style="width: 678px;" colspan="3">
+<h1 align="center"><span style="text-decoration: underline;"><strong>Dokumen Identitas</strong></span></h1>
+<div align="center">Jl. Ganesha No.10, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132</div>
+<div align="center"><hr /></div>
+</td>
+</tr>
+<tr>
+<td style="width: 678px;" colspan="3" valign="top" height="270">
+<div align="justify">Bersama surat ini tertera data-data pegawai Institut Teknologi Bandung sebagai berikut.</div>
+<div align="justify"><br />
+<table style="width: 407px;" border="0">
+<tbody>
+<tr>
+<td style="width: 211.5px;"><span style="font-size: medium;">Nama</span></td>
+<td style="width: 10px;"><span style="font-size: medium;">:</span></td>
+<td style="width: 312px;"><%= userInfo.nama %></td>
+</tr>
+<tr>
+<td style="width: 211.5px;"><span style="font-size: medium;">NIP</span></td>
+<td style="width: 10px;"><span style="font-size: medium;">:</span></td>
+<td style="width: 312px;"><%= userInfo.nip %></td>
+</tr>
+<tr>
+<td style="width: 211.5px;">E-mail pribadi</td>
+<td style="width: 10px;"><span style="font-size: medium;">:</span></td>
+<td style="width: 312px;"><%= userInfo.email_pribadi %></td>
+</tr>
+<tr>
+<td style="width: 211.5px;"><span style="font-size: medium;">E-mail organisasi</span></td>
+<td style="width: 10px;"><span style="font-size: medium;">:</span></td>
+<td style="width: 312px;"><%= userInfo.email_organisasi %></td>
+</tr>
+<tr>
+<td style="width: 211.5px;"><span style="font-size: medium;">Alamat</span></td>
+<td style="width: 10px;"><span style="font-size: medium;">:</span></td>
+<td style="width: 312px;"><span style="font-size: medium;"><%= userInfo.alamat %></span></td>
+</tr>
+<tr>
+<td style="width: 211.5px;"><span style="font-size: medium;">Unit Kerja</span></td>
+<td style="width: 10px;"><span style="font-size: medium;">:</span></td>
+<td style="width: 312px;"><span style="font-size: medium;"><%= unit_kerja %></span></td>
+</tr>
+<tr>
+<td style="width: 211.5px;"><span style="font-size: medium;">Jabatan Struktural</span></td>
+<td style="width: 10px;"><span style="font-size: medium;">:</span></td>
+<td style="width: 312px;"><span style="font-size: medium;"><%= jabatan.jabatan_struktural %></span></td>
+</tr>
+<tr>
+<td style="width: 211.5px;">Jabatan Fungsional</td>
+<td style="width: 10px;">:</td>
+<td style="width: 312px;"><%= jabatan.jabatan_fungsional %></td>
+</tr>
+<tr>
+<td style="width: 211.5px;">Status Perkawinan</td>
+<td style="width: 10px;">:</td>
+<td style="width: 312px;"><%= userInfo.is_menikah %></td>
+</tr>
+<tr>
+<td style="width: 211.5px;">Jumlah Anak</td>
+<td style="width: 10px;">:</td>
+<td style="width: 312px;"><%= userInfo.jumlah_anak %></td>
+</tr>
+<tr>
+<td style="width: 211.5px;">Gaji</td>
+<td style="width: 10px;">:</td>
+<td style="width: 312px;"><%= remunerasi.gaji %></td>
+</tr>
+</tbody>
+</table>
+<div align="justify">&nbsp;</div>
+<div align="justify"><span style="font-size: medium;">Seluruh data diatas adalah data yang diterbitkan pada <%= userInfo.waktu_pengangkatan %>.</span></div>
+<div align="justify">&nbsp;</div>
+<div align="justify"><span style="font-size: medium;">Demikian dokumen identitas ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana mestinya.</span></div>
+<div align="justify">&nbsp;</div>
+<div align="justify">&nbsp;</div>
+<div align="justify">&nbsp;</div>
+<div align="justify">&nbsp;</div>
+</div>
+<div align="center">&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td style="width: 209px;">
+<div align="center"><span style="font-size: medium;">Kepala Dekan,</span></div>
+<div align="center">&nbsp;</div>
+<div align="center"><span style="font-size: medium;">{ Nama Dekan }</span></div>
+</td>
+<td style="width: 447px;">&nbsp;</td>
+<td style="width: 22px;" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<p>&nbsp;</p>
+</div>
+<div>
+<p>&nbsp;</p>
+</div>
+<div>
+<p>&nbsp;</p>
+</div>
+<div>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>

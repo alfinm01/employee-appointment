@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="css/style_registrasi.css">
+  <title> Registrasi Pegawai </title>
+  <style>
+    @font-face {
+      font-family: Lato;
+      src: url(assets/font/Lato-Bold.ttf);
+    }
+    @font-face {
+      font-family: SourceSansPro;
+      src: url(assets/font/SourceSansPro-Regular.otf);
+    }
+
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    </script>
+
+</head>
+
+<body>
+  <div class="upper-menu">
+      <h2 class="logo"> Pengangkatan Pegawai </h2>
+      <input type="checkbox" id="chk">
+      <label for="chk" class="show-menu-btn">
+        <img src="assets/image/more_pattern.png" width="20" height="20">
+      </label>
+
+      <ul class="menu">
+        <a href="registrasi_pegawai.html" style="font-size: 24px;"> 
+          Registrasi 
+        </a>
+        <a href="kelengkapan.html" style="font-size: 24px;">
+          Kelengkapan 
+        </a>
+        <a href="login_pegawai.html" style="font-size: 24px;"> 
+          Log Out 
+        </a>
+        <label for="chk" class="hide-menu-btn">
+          <img src="assets/image/close-cross.png" width="20" height="20">
+        </label>
+      </ul>
+  </div>
+<main>
+  <div class="content">
+
+    <center>
+
+      <h2> Registrasi Pegawai </h2>
+
+    <form id="RegisterForm" class="create-post-form" method="POST" enctype="multipart/form-data">
+      <br>
+      <input type="text" id="in-name" name="nama" placeholder="Nama">
+      <input type="text" id="in-addr" name="alamat" placeholder="Alamat">
+      <input type="text" id="in-telp" name="no_telepon" placeholder="Nomor Telepon">
+      <input type="number" id="in-child" name="jumlah_anak" placeholder="Jumlah anak">
+    
+    </center>
+  </div>
+
+  <center>
+    <!-- <a href="download.html" id="submit"> -->
+      <button class="button button-submit"> Submit </button>
+
+    <!-- /a> -->
+  </center>
+  </form>   
+</main>
+
+  <script>
+    $(document).ready(function(){
+      $("button").click(function() { 
+        event.preventDefault();
+        var data = $("#RegisterForm").serialize();
+        //alert($("input#in-name").val())
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:3000/employee",
+          crossDomain: true,
+          data: data,
+          dataType: "json",
+        }).done(function(res) {
+          console.log(res);
+        }).fail(function(err) {
+          console.log(err);
+        }); 
+      });
+    });        
+  </script> 
+</body>
+
+</html>

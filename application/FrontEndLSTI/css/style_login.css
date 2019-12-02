@@ -1,0 +1,123 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: SourceSansPro;
+}
+
+
+body, html{
+  margin:0;
+  padding: 0;
+  height: 100%;
+  font-family: SourceSansPro;
+}
+
+
+.d1{
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+  background-color: #009BFF;
+}
+
+.d2{
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+  background-color: #000;
+  background-image: url(assets/image/bg_login2.jpg);;
+}
+
+
+.button{
+  border: none;
+  background-color: #2E528F;
+  color:white;
+  padding: 12px 64px;
+  text-align: center;
+  text-decoration: none;
+  duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-size: 20px;
+  display: inline-block;
+  margin: 16px;
+}
+
+.login{
+  position: fixed;
+  overflow: scroll;
+  width: 100%;
+  max-width: 550px;
+  right: 0;
+  margin: 0;
+  background: #fff;
+  height: 100%;
+  z-index: 1;
+}
+
+.login form{
+  margin: 160px 30px;
+}
+
+.login h1{
+  font-size: 30px;
+  font-family: Lato;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.login h2{
+  font-size: 25px;
+  font-family: SourceSansPro;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.txtb{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  height: 30px;
+  width: 200px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 18px;
+}
+
+.txtb:focus{
+  width: 280px;
+  border-color: #2E528F;
+}
+
+
+.btn{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #43BF38;
+  padding: 14px 10px;
+  height: 50px;
+  width: 150px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover{
+  background: #43BF38;
+}

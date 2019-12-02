@@ -1,0 +1,1400 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"description": "Dokumentasi dari modul Pengangkatan Pegawai, unit bisnis Sumber Daya Manusia.\nTugas besar mata kuliah II3120 - Layanan STI tahun ajaran 2019/2020.",
+		"version": "1.0.0",
+		"title": "Pengangkatan Pegawai"
+	},
+	"servers": [
+		{
+			"url": "http://178.128.104.74/pengangkatanpegawai"
+		}
+	],
+	"tags": [
+		{
+			"name": "Pegawai",
+			"description": "Endpoints terkait pegawai"
+		},
+		{
+			"name": "Generator",
+			"description": "Endpoints terkait \"generating\" informasi penting pegawai"
+		},
+		{
+			"name": "Uploader",
+			"description": "Endpoint terkait unggah dan unduh file"
+		}
+	],
+	"paths": {
+		"/generate/identity/{id}": {
+			"get": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Menghasilkan identitas dari pegawai dengan ID tersebut dalam bentuk file PDF",
+				"operationId": "generateIdentity",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai yang akan dihasilkan file identitasnya",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/pdf": {
+								"schema": {
+									"type": "string",
+									"format": "binary"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/generate/appointment-letter/{id}": {
+			"get": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Menghasilkan Surat Keputusan Pengangkatan Pegawai dalam bentuk file PDF dari pegawai dengan ID tersebut",
+				"operationId": "generateSK",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai yang akan dihasilkan SK-nya",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/pdf": {
+								"schema": {
+									"type": "string",
+									"format": "binary"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/generate/work-unit/{id}": {
+			"get": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Mengambil unit kerja pegawai dengan ID tersebut",
+				"operationId": "getWorkUnit",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnitKerja"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Penempatan unit kerja pegawai dengan ID tersebut",
+				"operationId": "generateWorkUnit",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"unit_kerja": {
+										"type": "string",
+										"example": "Informatika"
+									}
+								}
+							}
+						}
+					},
+					"description": "Penempatan unit kerja",
+					"required": true
+				}
+			}
+		},
+		"/generate/position/{id}": {
+			"get": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Mengambil jabatan pegawai dengan ID tersebut",
+				"operationId": "getPosition",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnitKerja"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Penempatan jabatan pegawai dengan ID tersebut",
+				"operationId": "assignPosition",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Jabatan"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"unit_kerja": {
+										"type": "string",
+										"example": "Informatika"
+									}
+								}
+							}
+						}
+					},
+					"description": "Penempatan unit kerja",
+					"required": true
+				}
+			}
+		},
+		"/generate/email/{id}": {
+			"post": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Membuat email organisasi dari pegawai dengan ID tersebut",
+				"operationId": "generateEmail",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai yang akan dihasilkan email-nya",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"username": {
+										"type": "string",
+										"example": "arthur"
+									}
+								}
+							}
+						}
+					},
+					"description": "Username yang menjadi local-part email",
+					"required": true
+				}
+			}
+		},
+		"/generate/remuneration/{id}": {
+		  "get": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Mengambil unit kerja pegawai dengan ID tersebut",
+				"operationId": "getRemuneration",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Remunerasi"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Generator"
+				],
+				"summary": "Menetapkan remunerasi dari pegawai dengan ID tersebut",
+				"operationId": "generateSalary",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/employee": {
+			"get": {
+				"tags": [
+					"Pegawai"
+				],
+				"summary": "Mendapatkan informasi semua pegawai",
+				"operationId": "getAllEmployees",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Pegawai"
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Pegawai"
+				],
+				"summary": "Membuat informasi data pegawai baru",
+				"operationId": "createEmployee",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/employee/{id}": {
+			"get": {
+				"tags": [
+					"Pegawai"
+				],
+				"summary": "Mendapatkan informasi pegawai dengan ID tersebut",
+				"operationId": "getEmployeeById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Pegawai"
+				],
+				"summary": "Menyunting data informasi pegawai dengan ID tersebut",
+				"operationId": "updateEmployeeById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Pegawai"
+				],
+				"summary": "Menghapus data informasi pegawai dengan ID tersebut",
+				"operationId": "deleteEmployeeById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "berhasil dihapus"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/file/list/fingerprint/{id}": {
+			"get": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "getListFingerprints",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "Nama file",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"file": {
+											"type": "string",
+											"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/file/fingerprint/{id}/{nama_jari}": {
+			"get": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "getFingerprint",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "nama_jari",
+						"in": "path",
+						"required": true,
+						"description": "Nama jari",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"file": {
+											"type": "string",
+											"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/file/fingerprint/{id}": {
+			"post": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "uploadFingerprint",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},	
+		"/file/list/certificate/{id}": {
+			"get": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "getListCertificate",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "Nama file",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"file": {
+											"type": "string",
+											"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/file/sertifikat/{id}": {
+			"get": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "getCertificate",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "Nama file",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"file": {
+											"type": "string",
+											"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "uploadCertificate",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "deleteCertificate",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "berhasil dihapus"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/file/berkas/pengaktifan/{id}": {
+			"get": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "getSP",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "Nama file",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"file": {
+											"type": "string",
+											"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "uploadSP",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/file/berkas/rekomendasi/{id}": {
+			"get": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "getRek",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "Nama file",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"file": {
+											"type": "string",
+											"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Uploader"
+				],
+				"operationId": "uploadRek",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID dari pegawai tersebut",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Pegawai"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Pegawai": {
+				"type": "object",
+				"required": [
+					"id",
+					"nama"
+				],
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64",
+						"example": 1
+					},
+					"nama": {
+						"type": "string",
+						"example": "Arthur Fleck"
+					},
+					"alamat": {
+						"type": "string",
+						"example": "Jalan Tubagus Ismail No. 153A, Bandung"
+					},
+					"email_personal": {
+						"type": "string",
+						"format": "email",
+						"example": "arthur@gmail.com"
+					},
+					"email_organisasi": {
+						"type": "string",
+						"format": "email",
+						"example": "arthur@stei.itb.ac.id"
+					},
+					"no_telepon": {
+						"type": "string",
+						"example": 190538275
+					},
+					"nip": {
+						"type": "number",
+						"example": 197201242000031000
+					},
+					"is_tendik": {
+						"type": "boolean",
+						"example": true
+					},
+					"is_pns": {
+						"type": "boolean",
+						"example": true
+					},
+					"tanggal_lahir": {
+						"type": "string"
+					},
+					"tempat_lahir": {
+						"type": "string"
+					},
+					"sma": {
+						"type": "string"
+					},
+					"sarjana": {
+						"type": "string"
+					},
+					"magister": {
+						"type": "string"
+					},
+					"doktor": {
+						"type": "string"
+					},
+					"isMenikah": {
+						"type": "boolean",
+						"example": false
+					},
+					"jumlah_anak": {
+						"type": "number",
+						"example": 2
+					},
+					"waktu_pengangkatan": {
+						"type": "string"
+					}
+				}
+			},
+			"Jabatan": {
+				"type": "object",
+				"properties": {
+					"id_pegawai": {
+						"type": "integer",
+						"format": "int64",
+						"example": 1
+					},
+					"kategori": {
+						"type": "string"
+					},
+					"nama": {
+						"type": "string"
+					},
+					"waktu_mulai": {
+						"type": "string"
+					}
+				}
+			},
+			"UnitKerja": {
+				"type": "object",
+				"properties": {
+					"id_pegawai": {
+						"type": "integer",
+						"format": "int64",
+						"example": 1
+					},
+					"unit_kerja": {
+						"type": "string"
+					},
+					"waktu_mulai": {
+						"type": "string"
+					}
+				}
+			},
+			"Remunerasi": {
+				"type": "object",
+				"properties": {
+					"id_pegawai": {
+						"type": "integer",
+						"format": "int64",
+						"example": 1
+					},
+					"gaji": {
+						"type": "string"
+					},
+					"waktu_mulai": {
+						"type": "string"
+					}
+				}
+			},
+			"Berkas": {
+				"type": "object",
+				"properties": {
+					"sk_pengangkatan_pegawai": {
+						"type": "string",
+						"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+					},
+					"surat_pengaktifan": {
+						"type": "string",
+						"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+					},
+					"surat_rekomendasi_fakultas": {
+						"type": "string",
+						"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+					}
+				}
+			},
+			"Sertifikasi": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+				}
+			},
+			"SidikJari": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"example": "http(s)://<bucket>.s3.amazonaws.com/<object>"
+				}
+			}
+		}
+	}
+}
